@@ -1,0 +1,14 @@
+default:
+ - 'clean'
+ - 'jshint:devel'
+ - 'rig'
+ - 'replace'
+ - 'copy'
+
+release:
+ - 'clean'
+ - 'jshint:release'
+ - 'rig'
+ - 'replace'
+ - 'copy'
+ - 'uglify'
