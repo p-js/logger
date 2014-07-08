@@ -1,17 +1,18 @@
-/* global _, Util */
+/* global _, module*/
 /* exported Logger */
 var Logger = (function() {
 	var colors = {
-		debug: "blue",
-		info: "green",
-		log: "#333",
-		warn: "orange",
-		error: "red"
-	},
+			debug: "blue",
+			info: "green",
+			log: "#333",
+			warn: "orange",
+			error: "red"
+		},
 		noop = function() {},
 		postMessage = window.postMessage || noop,
 		consoleProps = ["debug", "log", "info", "error", "warn"],
 		console = window.console || {};
+
 	// pollyfill 
 	_.each(consoleProps, function(prop) {
 		if (!console[prop]) {
@@ -59,4 +60,5 @@ var Logger = (function() {
 	};
 	return Logger;
 })();
-Util.Logger = Logger;
+
+module.exports = Logger;
