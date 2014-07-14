@@ -60,5 +60,3 @@ var Logger = (function() {
 	};
 	return Logger;
 })();
-
-//module.exports = Logger;

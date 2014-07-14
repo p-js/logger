@@ -70,7 +70,5 @@
 		};
 		return Logger;
 	})();
-	
-	//module.exports = Logger;
 	return Logger;
 }));

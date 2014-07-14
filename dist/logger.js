@@ -15,19 +15,19 @@ var Logger = (function(_) {
 			postMessage = window.postMessage || noop,
 			consoleProps = ["debug", "log", "info", "error", "warn"],
 			console = window.console || {};
-
+	
 		// pollyfill 
 		_.each(consoleProps, function(prop) {
 			if (!console[prop]) {
 				console[prop] = noop;
 			}
 		});
-
+	
 		function Logger(name) {
 			this.prefix = name || "Logger";
 			_.bindAll(this, "debug", "info", "log", "warn", "error"); // so loggers can be event handlers.
 		}
-
+	
 		function doLog(level, logger, args) {
 			var loggers = Logger.getFilters();
 			if (loggers.indexOf("all") !== -1 || logger.prefix.toLowerCase().indexOf(loggers) !== -1) {
@@ -63,6 +63,5 @@ var Logger = (function(_) {
 		};
 		return Logger;
 	})();
-
 	return Logger;
 })(_);
