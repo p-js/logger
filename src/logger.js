@@ -1,4 +1,4 @@
-/* global _, module*/
+/* global _*/
 /* exported Logger */
 var Logger = (function() {
 	var colors = {
@@ -61,4 +61,4 @@ var Logger = (function() {
 	return Logger;
 })();
 
-module.exports = Logger;
+//module.exports = Logger;

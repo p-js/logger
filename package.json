@@ -36,6 +36,7 @@
 		"grunt-testem": "^0.5.2",
 		"load-grunt-config": "^0.10.0",
 		"load-grunt-tasks": "^0.6.0",
-		"testem": "^0.6.17"
+		"testem": "^0.6.17",
+		"mocha": "^1.20.1"
 	}
 }

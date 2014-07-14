@@ -1,4 +1,5 @@
-/*global Util, test, expect, ok, _*/
+/*global Logger, test, expect, ok, _*/
+
 test("logger test", function() {
 	var methods = ["debug", "log", "info", "error", "warn"],
 		logger = new(Logger)();
