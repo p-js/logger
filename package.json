@@ -4,7 +4,7 @@
 	"description": "console.log wrapper",
 	"main": "src/logger.js",
 	"scripts": {
-		"test": "testem ci -t test/test.html -l PhantomJS",
+		"test": "testem ci -t dist/test/test.html -l PhantomJS",
 		"release": "grunt release",
 		"lint": "jshint src"
 	},
@@ -36,7 +36,7 @@
 		"grunt-testem": "^0.5.2",
 		"load-grunt-config": "^0.10.0",
 		"load-grunt-tasks": "^0.6.0",
-		"testem": "^0.6.17",
-		"mocha": "^1.20.1"
+		"mocha": "^1.20.1",
+		"testem": "^0.6.17"
 	}
 }
