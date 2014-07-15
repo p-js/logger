@@ -1,7 +1,7 @@
 /* global _ */
 var Logger = (function(_) {
 	// jshint unused:false
-	/* global _, module */
+	/* global _ */
 	/* exported Logger */
 	var Logger = (function() {
 		var colors = {
@@ -63,7 +63,5 @@ var Logger = (function(_) {
 		};
 		return Logger;
 	})();
-	
-	module.exports = Logger;
 	return Logger;
 })(_);
