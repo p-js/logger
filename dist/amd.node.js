@@ -8,7 +8,7 @@
 }(this, function(_) {
 	/* jshint unused:false */
 	/* global Logger */
-	/* global _*/
+	/* global _, module */
 	/* exported Logger */
 	var Logger = (function() {
 		var colors = {
@@ -70,5 +70,7 @@
 		};
 		return Logger;
 	})();
+	
+	module.exports = Logger;
 	return Logger;
 }));
