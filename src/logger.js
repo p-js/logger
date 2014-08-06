@@ -1,62 +1,59 @@
-/* global _ */
-/* exported Logger */
-var Logger = (function() {
-	var colors = {
-			debug: "blue",
-			info: "green",
-			log: "#333",
-			warn: "orange",
-			error: "red"
-		},
-		noop = function() {},
-		postMessage = window.postMessage || noop,
-		consoleProps = ["debug", "log", "info", "error", "warn"],
-		console = window.console || {};
+/* global _, log */
+// appenders output the logs.
+var appenders = [log];
 
-	// pollyfill 
-	_.each(consoleProps, function(prop) {
-		if (!console[prop]) {
-			console[prop] = noop;
-		}
-	});
+/**
+ * Pass a name and all logs from this instance will be prefixed.
+ */
+function Logger(name) {
+	this.prefix = name || "Logger";
+	_.bindAll.apply(null, [this].concat(Logger.logMethods)); // so loggers can be event handlers.
+}
 
-	function Logger(name) {
-		this.prefix = name || "Logger";
-		_.bindAll(this, "debug", "info", "log", "warn", "error"); // so loggers can be event handlers.
+function outputLog(level, prefix, args) {
+	var logFilters = Logger.filters ? Logger.filters.toString().toLowerCase() : "";
+	if (logFilters.indexOf("all") !== -1 || prefix.toLowerCase().indexOf(logFilters) !== -1) {
+		args = _.toArray(args);
+		args.unshift(prefix);
+		_.each(appenders, function(appender) {
+			if (level === "log") {
+				// loglevel doesn't have a log method. 
+				// trace outputs too much
+				// so go with debug
+				level = "debug";
+			}
+			appender[level].apply(log, args);
+		});
 	}
-
-	function doLog(level, logger, args) {
-		var loggers = Logger.getFilters();
-		if (loggers.indexOf("all") !== -1 || logger.prefix.toLowerCase().indexOf(loggers) !== -1) {
-			var prefix = "[" + logger.prefix + "]";
-			args = _.toArray(args);
-			postMessage("logMessage:<span style=\"color:" + colors[level] + "\">" + prefix + " " + args + "</span>", "*");
-			args.unshift(prefix);
-			console[level].apply(console, args);
+}
+_.extend(Logger, {
+	logMethods: ["trace", "debug", "info", "log", "warn", "error"],
+	addAppender: function(appender) {
+		// make sure the appender has every method.
+		var hasAllMethods = _.every(Logger.logMethods, function(method) {
+			return _.isFunction(appender[method]);
+		});
+		if (hasAllMethods) {
+			appenders.push(appender);
+		} else {
+			log.error("Logging error, adding bad appender", appender);
 		}
+	},
+	enableAll: function() {
+		log.enableAll();
+	},
+	disableAll: function() {
+		log.disableAll();
+	},
+	setLevel: function(level) {
+		log.setLevel(level);
 	}
-	_.extend(Logger.prototype, {
-		debug: function() {
-			doLog("debug", this, arguments);
-		},
-		info: function() {
-			doLog("info", this, arguments);
-		},
-		log: function() {
-			doLog("log", this, arguments);
-		},
-		warn: function() {
-			doLog("warn", this, arguments);
-		},
-		error: function() {
-			doLog("error", this, arguments);
-		}
-	});
-	Logger.getFilters = function() {
-		if (!Logger.fiters) {
-			return "";
-		}
-		return Logger.filters.toString().toLowerCase();
+});
+
+_.each(Logger.logMethods, function(method) {
+	Logger.prototype[method] = function() {
+		outputLog(method, "[" + this.prefix + "]", arguments);
 	};
-	return Logger;
-})();
+});
+// Enable all by default.
+Logger.enableAll();
