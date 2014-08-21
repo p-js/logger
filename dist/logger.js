@@ -263,5 +263,7 @@ var Logger = (function(_) {
 	});
 	// Enable all by default.
 	Logger.enableAll();
+	Logger.version = "0.2.2";
+	Logger.build = "Thu Aug 21 2014 09:45:55";
 	return Logger;
 })(_);
