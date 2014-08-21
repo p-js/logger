@@ -1,4 +1,9 @@
 
+0.2.1 / 2014-08-21 
+==================
+
+ * Update to new loglevel (p-js/loglevel#1.0.1). Check for global leak.
+
 0.2.0 / 2014-08-05 
 ==================
 

@@ -1,7 +1,14 @@
-/* global describe, it, Logger, expect, _ */
-describe("logger test node", function() {
+/* global describe, it, Logger, expect, _, isBrowser */
+describe("Logger", function() {
 	var methods = Logger.logMethods,
 		logger = new Logger("TestLogger");
+	it("should not have leaked log into global", function() {
+		if (isBrowser) {
+			expect(window.log).to.be.an('undefined');
+		} else {
+			expect(this.log).to.be.an('undefined');
+		}
+	});
 	_.each(methods, function(method) {
 		it(method + " should be a function", function() {
 			expect(logger[method]).to.be.a("function");
