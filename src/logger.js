@@ -57,3 +57,5 @@ _.each(Logger.logMethods, function(method) {
 });
 // Enable all by default.
 Logger.enableAll();
+Logger.version = "@@version";
+Logger.build = "@@timestamp";
