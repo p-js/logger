@@ -15,7 +15,7 @@
 	],
 	"dependencies": {
 		"underscore": "^1.6.0",
-		"loglevel": "~1.0.0"
+		"loglevel": "p-js/loglevel"
 	},
 	"devDependencies": {
 		"qunit": "^1.14.0",
