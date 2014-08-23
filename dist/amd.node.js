@@ -67,7 +67,7 @@
 	});
 	// Enable all by default.
 	Logger.enableAll();
-	Logger.version = "0.2.2";
-	Logger.build = "Thu Aug 21 2014 09:45:55";
+	Logger.version = "0.2.3";
+	Logger.build = "Sat Aug 23 2014 11:04:44";
 	return Logger;
 }));
