@@ -68,6 +68,6 @@
 	// Enable all by default.
 	Logger.enableAll();
 	Logger.version = "0.3.0";
-	Logger.build = "Thu Aug 21 2014 09:46:51";
+	Logger.build = "Sat Aug 23 2014 11:06:36";
 	return Logger;
 }));

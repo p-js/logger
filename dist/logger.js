@@ -2,7 +2,7 @@
 var Logger = (function(_) {
 	// jshint unused:false
 	var log = (function() {
-		/*! loglevel - v1.0.1 - https://github.com/pimterry/loglevel - (c) 2014 Tim Perry - licensed MIT */
+		/*! loglevel - v1.1.0 - https://github.com/pimterry/loglevel - (c) 2014 Tim Perry - licensed MIT */
 		(function (root, definition) {
 		    if (typeof module === 'object' && module.exports && typeof require === 'function') {
 		        module.exports = definition();
@@ -264,6 +264,6 @@ var Logger = (function(_) {
 	// Enable all by default.
 	Logger.enableAll();
 	Logger.version = "0.3.0";
-	Logger.build = "Thu Aug 21 2014 09:46:51";
+	Logger.build = "Sat Aug 23 2014 11:06:36";
 	return Logger;
 })(_);
