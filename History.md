@@ -1,4 +1,9 @@
 
+0.2.3 / 2014-08-23 
+==================
+
+ * Use pimterry/loglevel instead of p-js/loglevel
+
 0.2.2 / 2014-08-21 
 ==================
 

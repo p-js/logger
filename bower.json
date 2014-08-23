@@ -1,6 +1,6 @@
 {
 	"name": "pjs-logger",
-	"version": "0.2.2",
+	"version": "0.2.3",
 	"homepage": "https://github.com/p-js/logger",
 	"repository": {
 		"type": "git",
@@ -15,7 +15,7 @@
 	],
 	"dependencies": {
 		"underscore": "^1.6.0",
-		"loglevel": "p-js/loglevel"
+		"loglevel": "^1.1.0"
 	},
 	"devDependencies": {
 		"qunit": "^1.14.0",

@@ -1,4 +1,4 @@
-/*! loglevel - v1.0.1 - https://github.com/pimterry/loglevel - (c) 2014 Tim Perry - licensed MIT */
+/*! loglevel - v1.1.0 - https://github.com/pimterry/loglevel - (c) 2014 Tim Perry - licensed MIT */
 (function (root, definition) {
     if (typeof module === 'object' && module.exports && typeof require === 'function') {
         module.exports = definition();
